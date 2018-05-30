@@ -43,4 +43,8 @@ dispatcher.add_handler(what_if_handler)
 echo_handler = MessageHandler(Filters.text, echo)
 dispatcher.add_handler(echo_handler)
 
-updater.start_polling()
+while True:
+    try:
+        updater.start_polling()
+    except Exception:
+        time.sleep(15)
